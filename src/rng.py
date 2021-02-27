@@ -1,10 +1,11 @@
 import random as rand
+from src import Counter
 
 # creates a global list to allow for various operations
 RNG_LIST = []
 
 # creates a "count" variable for persistence through function calls
-count = 0
+RNG = Counter(0)
 
 """
 
@@ -14,6 +15,7 @@ similar, unlike DOOM or DOOM II. If certain values are already in the list, the
 function will only generate the difference of 255 and the length of the list.
 
 """
+
 
 def create_table():
 
@@ -46,16 +48,17 @@ def create_table():
             
                 continue
 
+
 """
 
 This function accesses a value on the table and returns it for an RNG call.
 
 """
 
-def get_value():
 
-    global RNG_LIST
-    
-    grabbed = RNG_LIST[count]
-    count += 1
-    return grabbed
+def get_value(values):
+
+    if RNG.count == 255:
+        RNG.count = 0
+
+    return values[RNG.count]

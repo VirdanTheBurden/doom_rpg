@@ -1,3 +1,8 @@
+"""
+TODO: implement weaponry
+"""
+
+
 # creates template for all mobjs that exist in the game
 
 class Mobj:
@@ -21,15 +26,15 @@ class Mobj:
         self.speed = speed
         
         # pass an int, ex. 12
-        self.lvl = level
+        self.lvl = lvl
         
         # checks how much xp player has, or how much xp demon drops, pass an int, ex. 7000
         self.xp = xp
         
-        # pass as a list of strs, ex. [Tank, Light_Footed, Tactician]
+        # pass as a list of str, ex. [Tank, Light_Footed, Tactician]
         self.perks = perks
         
-        # pass as a list of strs, ex. [NO_SPLASH_DMG, NO_INFIGHT, NO_DMG]
+        # pass as a list of str, ex. [NO_SPLASH_DMG, NO_INFIGHTING, NO_DMG]
         self.resistances = resist
         
         # pass a dict, ex. {"Shells": 21, "Bullets": 211}
@@ -39,7 +44,7 @@ class Mobj:
     # classes during gameplay, pass the same type into the param's please,
     # refer to the __init__ method for types
     
-    def changeHealth(self):
+    def changehealth(self, health):
         
         # verifies the param type is the same as the one instantiated
         if isinstance(health, int):
@@ -51,7 +56,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.health")
     
-    def changeArmor(self):
+    def changearmor(self, armor):
         
         # if the armor value doesn't exist on instantiation, raise error
         if not self.armor:
@@ -67,7 +72,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.armor")
     
-    def changeMeleeDmg(self):
+    def changemeleedmg(self, damage):
         
         # verifies parameter is the same as attribute
         if isinstance(damage, int):
@@ -78,7 +83,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.melee")
     
-    def changeLvl(self, new_lvl):
+    def changelvl(self, new_lvl):
         
         # you know what this does by now
         if isinstance(new_lvl, int):
@@ -90,7 +95,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.lvl")
     
-    def addXP(self, new_xp):
+    def addxp(self, new_xp):
         
         if isinstance(new_xp, int):
             
@@ -100,7 +105,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.xp")
     
-    def changeSpeed(self, speed):
+    def changespeed(self, speed):
         
         if isinstance(speed, int):
             
@@ -110,7 +115,7 @@ class Mobj:
         else:
             raise AttributeError("The parameter does not match the type of self.speed")
 
-    def modPerks(self, operation, perk):
+    def modperks(self, operation, perk):
         
         # if self.perks wasn't instantiated, raise error
         if not self.perks:
@@ -124,7 +129,7 @@ class Mobj:
             
             # checks if the operation is "del", if so, remove perk from self.perks
             elif operation == "del":
-            self.perks.remove(perk)
+                self.perks.remove(perk)
             
             # otherwise, raise an Attribute Error
             else:
@@ -133,7 +138,7 @@ class Mobj:
         else:
             raise AttributeError("The last parameter does not match the type of the items in self.perks")
     
-    def modResistances(self, operation, resist):
+    def modresistances(self, operation, resist):
         
         # if self.resistances wasn't instantiated, raise error
         if not self.resistances:
@@ -156,7 +161,7 @@ class Mobj:
         else:
             raise AttributeError("The last parameter does not match the type of the items in self.resistances")
 
-    def modAmmo(self, operation, ammo_type, count):
+    def modammo(self, operation, ammo_type, count):
         
         # if self.ammo wasn't instantiated, raise error
         if not self.ammo:
@@ -198,6 +203,3 @@ class Mobj:
             raise AttributeError("The last parameter does not match the type of self.ammo")
 
 # creates a template for all weapons to follow
-class Weapon:
-
-    def __init__(self, fired_, associated_mobj, )
